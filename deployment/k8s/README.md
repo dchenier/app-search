@@ -27,12 +27,12 @@ This creates the Elasticsearch cluster, as well as deploying Kibana.
 
 4. Get the default Elasticsearch user's credentials:
 ``` bash
-PASSWORD=$(kubectl get secret textsearch-es-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+PASSWORD=$(kubectl get secret textsearch-es-es-elastic-user -o=jsonpath='{.data.elastic}' --namespace=textsearch | base64 --decode)
 ```
 
 5. To access the service, forward the containers port to your local machine **using in a new terminal**:
 ``` bash
-kubectl port-forward service/textsearch-es-es-http 9200
+kubectl port-forward service/textsearch-es-es-http --namespace=textsearch 9200
 ```
 
 6. Send the following cUrl request **in the same terminal you've stored your Elastic user's password in**:
