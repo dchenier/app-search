@@ -19,6 +19,7 @@ kubectl apply -f https://download.elastic.co/downloads/eck/0.9.0/all-in-one.yaml
 
 3. From the same directory this `README.md` file is in, run:
 ``` bash
+kubectl create namespace textsearch
 kubectl apply -f yaml/ --namespace=textsearch
 ```
 
